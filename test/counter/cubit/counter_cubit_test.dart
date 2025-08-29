@@ -1,5 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
+
 import 'package:mpc_exploration/counter/counter.dart';
 
 void main() {
@@ -10,16 +11,16 @@ void main() {
 
     blocTest<CounterCubit, int>(
       'emits [1] when increment is called',
-      build: () => CounterCubit(),
+      build: CounterCubit.new,
       act: (cubit) => cubit.increment(),
-      expect: () => [1],
+      expect: () => [equals(1)],
     );
 
     blocTest<CounterCubit, int>(
       'emits [-1] when decrement is called',
-      build: () => CounterCubit(),
+      build: CounterCubit.new,
       act: (cubit) => cubit.decrement(),
-      expect: () => [-1],
+      expect: () => [equals(-1)],
     );
   });
 }
